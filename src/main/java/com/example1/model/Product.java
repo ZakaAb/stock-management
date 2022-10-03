@@ -1,7 +1,6 @@
 package com.example1.model;
 
 
-import com.example1.Order;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,7 +21,21 @@ public class Product {
 
     private String name;
 
+    private float price;
+
+    private int quantity;
+
+    public Product(String name, float price) {
+        this.name = name;
+        this.price = price;
+        this.quantity = 10;
+    }
+
+    public Product() {
+
+    }
+
     @JsonBackReference
-    @ManyToMany
+    @ManyToMany(mappedBy = "products")
     private List<Order> orders;
 }

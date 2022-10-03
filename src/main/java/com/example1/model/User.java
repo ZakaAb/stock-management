@@ -1,7 +1,7 @@
 package com.example1.model;
 
 
-import com.example1.Order;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +20,7 @@ public class User {
 
     private String name;
 
+    @JsonBackReference
     @OneToMany(mappedBy = "user")
     private List<Order> orders;
 
